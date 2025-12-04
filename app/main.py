@@ -59,7 +59,7 @@ async def fetch_all_messages() -> List[Message]:
     return [Message.model_validate(m) for m in messages]
 
 
-@app.on_event("startup")
+@app.get("/load")
 async def load_data():
     global MESSAGE_CACHE
     print("Loading messages from upstream...")
