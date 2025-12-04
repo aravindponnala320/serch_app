@@ -46,6 +46,9 @@ async def fetch_all_messages() -> List[Message]:
             items = data["items"]
             total = data["total"]
 
+            if not items:
+                break
+
             messages.extend(items)
 
             if len(messages) >= total:
